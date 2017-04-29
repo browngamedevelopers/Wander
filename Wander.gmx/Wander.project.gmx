@@ -10,21 +10,36 @@
     <sprite>sprites\sprParent</sprite>
     <sprite>sprites\sprPlayer</sprite>
     <sprite>sprites\sprEntranceSprite</sprite>
+    <sprite>sprites\sprSensor</sprite>
     <sprite>sprites\sprWall</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scrDefault.gml</script>
+    <script>scripts\scrPassedGate.gml</script>
+    <script>scripts\scrDay2.gml</script>
+    <script>scripts\scrDay3.gml</script>
+  </scripts>
   <objects name="objects">
+    <object>objects\objRoomDay1</object>
+    <object>objects\objRoomDay2</object>
     <object>objects\objRepeatUp</object>
+    <object>objects\objRepeatRight</object>
     <object>objects\objTree</object>
     <object>objects\objParent</object>
     <object>objects\objPlayer</object>
+    <object>objects\objSensor</object>
+    <object>objects\objCoolThing</object>
     <object>objects\objCoolEntrance</object>
     <object>objects\objWall</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
-    <room>rooms\room2</room>
+    <room>rooms\rmDay1</room>
+    <room>rooms\rmDay2</room>
+    <room>rooms\rmDay3</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

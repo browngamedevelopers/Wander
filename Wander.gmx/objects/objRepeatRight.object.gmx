@@ -25,15 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ypos = y;
+            <string>xpos = x;
 objRepeat = objTree;
-spriteHeight = sprite_get_height(object_get_sprite(objRepeat)) + 20;
-while(ypos &gt; 0 &amp;&amp; spriteHeight &gt; 0){
-    //show_message(sprite_get_height(object_index));
-    if(position_empty(x,ypos-spriteHeight)){
-        instance_create(x, ypos-spriteHeight, objRepeat);
+spriteWidth = sprite_get_width(object_get_sprite(objRepeat)) + 20;
+while(xpos &lt; room_width &amp;&amp; spriteWidth &gt; 0){
+    
+    show_debug_message(sprite_get_height(object_index));
+    if(position_empty(xpos+spriteWidth,y)){
+        instance_create(xpos+spriteWidth, y, objRepeat);
     }
-    ypos -=spriteHeight;
+    xpos +=spriteWidth;
 }
 </string>
           </argument>

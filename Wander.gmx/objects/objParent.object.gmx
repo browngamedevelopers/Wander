@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>lasty = y;
 parentSpeed = 10;
+parentCapSpeed = 11;
 parentRunSpeed = 15;
 distanceToMove = 1000;
 roomNum = 1;
@@ -58,8 +59,7 @@ roomNum = 1;
     (distance_to_object(objPlayer) &gt; view_hview[view_current]/4 &amp;&amp; objPlayer.y &lt; y)){
         //too far away, move towards
         move_towards_point(objPlayer.x, objPlayer.y, 2+ 11*distance_to_object(objPlayer)/(view_hview[view_current]/2));
-        
-        show_debug_message(11*distance_to_object(objPlayer)/(view_hview[view_current]/2))
+        //show_debug_message(11*distance_to_object(objPlayer)/(view_hview[view_current]/2))
     }else if(distance_to_object(objPlayer) &gt; view_hview[view_current]/4 &amp;&amp; y &lt; objPlayer.y){
         //just within distance, dont chase and don't move forward (but still ahead of player)
         hspeed = 0;
@@ -67,21 +67,19 @@ roomNum = 1;
     }else {
         //within distance, move forward
         hspeed = 0;
-//        vspeed = -10 +11*distance_to_object(objPlayer)*11/(view_hview[view_current]/2)
-            vspeed = -10 +11*(objPlayer.y - y)/(view_hview[view_current]/2)
+        vspeed = -10 +11*(objPlayer.y - y)/(view_hview[view_current]/2)
     }
-    /*if(vspeed == 0){
-        if(y &gt; objPlayer.y -10){
-            lasty = y;
-            vspeed = -parentSpeed;
-        }
-    }else {
-        if(y + distanceToMove &lt; lasty){
-            vspeed = 0;
-        }else {
-            vspeed = -10 +distance_to_object(objPlayer)*11/(view_hview[view_current]/2)
-        }
-    }*/
+    speed = min(speed, parentCapSpeed);
+    
+}
+if(global.passedGate){
+    chaseCloseDistance = 70;
+    if(distance_to_object(objPlayer) &lt; chaseCloseDistance){
+        //Day 3 stuff
+        room_goto(rmDay3);
+    }
+}
+if(room == rmDay3){
     
 }
 </string>
